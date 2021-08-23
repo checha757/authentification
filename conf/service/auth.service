@@ -1,0 +1,27 @@
+[Unit]
+Description=<Auth Skill Test>
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/node /home/husni/husni/authentification/www/res/app.js
+WorkingDirectory= /home/husni/husni/authentification
+
+User=husni
+Group=husni
+
+# Environment variables:
+Environment=NODE_ENV=production
+
+# Allow many incoming connections
+LimitNOFILE=infinity
+
+# Allow core dumps for debugging
+LimitCORE=infinity
+
+StandardInput=null
+StandardOutput=syslog
+StandardError=syslog
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
